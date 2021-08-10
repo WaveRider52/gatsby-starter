@@ -13,7 +13,41 @@ Kick off your project with this hello-world boilerplate. This starter ships with
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
 ## 🚀 Quick start
+0.  **Check Environment and Setup.**
 
+    Only thing you need to install on your machine is Node.js.
+    Check if node  and npm are installed on your OS:
+    ```shell
+    node -v
+    v14.17.4
+    npm -v
+    6.14.14
+    ```
+    **Install Gatsby CLI**
+
+    To create a Gatsby site, you’ll need to install the Gatsby CLI. This tool gets you up and running with a Gatsby app in no time. It also runs a development server and builds your Gatsby application for production.
+    For the installation simply run a single npm command -g (flag to install module globally) and the module name is gatsby-cli followed by  "@" and the latest version, as today 3.11.0, to check the latest version look at https://www.npmjs.com/package/gatsby-cli?activeTab=versions
+    ```shell
+    [git]$ npm install -g gatsby-cli@3.11.0
+    npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+    npm WARN deprecated @hapi/joi@15.1.1: Switch to 'npm install joi'
+    npm WARN deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+    npm WARN deprecated @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+    npm WARN deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+    npm WARN deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+    /usr/local/bin/gatsby -> /usr/local/lib/node_modules/gatsby-cli/cli.js
+
+    > gatsby-cli@3.11.0 postinstall /usr/local/lib/node_modules/gatsby-cli
+    > node scripts/postinstall.js
+
+    Success!
+
+    Welcome to the Gatsby CLI! Please visit https://www.gatsbyjs.org/docs/gatsby-cli/ for more information.
+
+
+    + gatsby-cli@3.11.0
+    updated 6 packages in 44.658s
+    ```
 1.  **Create a Gatsby site.**
 
     Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the hello-world starter.
