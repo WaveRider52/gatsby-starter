@@ -54,17 +54,62 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     ```shell
     # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
+    gatsby new gatsby-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
     ```
+    The command you just ran:
+
+    1. Created a new site with the Gatsby default starter.
+    2. Created a folder with the name of the project (dotcms-site).
+    3. Install all the npm packages that needs to run the site.
+    4. Made your life easier!
 
 1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-hello-world-starter/
-    gatsby develop
+    cd gatsby-starter/
+    [gatsby-starter]$ gatsby develop
+    success open and validate gatsby-configs, load plugins - 0.508s
+    success onPreInit - 0.108s
+    success initialize cache - 0.152s
+    success copy gatsby files - 0.309s
+    success Compiling Gatsby Functions - 1.012s
+    success onPreBootstrap - 1.069s
+    success createSchemaCustomization - 0.005s
+    success Checking for changed pages - 0.004s
+    success source and transform nodes - 0.091s
+    success building schema - 1.156s
+    success createPages - 0.003s
+    success createPagesStatefully - 0.095s
+    info Total nodes: 21, SitePage nodes: 2 (use --verbose for breakdown)
+    success Checking for changed pages - 0.005s
+    success update schema - 0.194s
+    success write out redirect data - 0.014s
+    success onPostBootstrap - 0.006s
+    info bootstrap finished - 9.836s
+    success onPreExtractQueries - 0.003s
+    success extract queries from components - 0.379s
+    success write out requires - 0.017s
+    success run page queries - 0.049s - 2/2 40.63/s
+    success Caching HTML renderer compilation - 0.005s
+    ⠀
+    You can now view gatsby-starter-hello-world in the browser.
+    ⠀
+      http://localhost:8000/
+    ⠀
+    View GraphiQL, an in-browser IDE, to explore your site's data and schema
+    ⠀
+      http://localhost:8000/___graphql
+    ⠀
+    Note that the development build is not optimized.
+    To create a production build, use gatsby build
+    ⠀
+    success Building development bundle - 21.208s
+    success Writing page-data.json files to public directory - 0.541s - 2/2 3.70/s
     ```
+    This command starts a development server. You will be able to see and interact with your new site in a development environment. Also, it has live reload, so any changes you do in your files you can see immediately in your site.
+
 
 1.  **Open the source code and start editing!**
 
@@ -72,7 +117,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `gatsby-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🚀 Quick start (Gatsby Cloud)
 
@@ -137,3 +182,11 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+## 🖐️ Hands-On Lessons
+
+The goal is to explore the fundemantal Gatsby features and if we know those, we will be able to work and customize any of those starters, which are boilerplate Gatsby sites maintained by the community and intended for jump-starting development quickly.
+
+### 📃 Lesson 1: Gatsby Pages ###
+Customizing pages, Creating new pages and the focus will be on /pages directory and the files inside
+
+Created four pages inside /pages: Index.js / blog.js /about.js / contact.js
