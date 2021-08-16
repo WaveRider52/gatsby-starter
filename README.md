@@ -190,3 +190,23 @@ The goal is to explore the fundemantal Gatsby features and if we know those, we 
 Customizing pages, Creating new pages and the focus will be on /pages directory and the files inside
 
 Created four pages inside /pages: Index.js / blog.js /about.js / contact.js
+
+### 📃 Lesson 2: Linking Between Pages with Gatsby ###
+Properly link btn our pages using Gatsby with {Link} react component and not the 'a' element except linking to external site (Github, Twitter) provided by html as tried out in index page as link to contact page. 
+    Why? Because we went through full page refresh:
+
+    1. The entire page went away.
+    2. It went to a white screen.
+    3. Then the contact page was loaded in.
+
+But Gatsby has a different way, we can link btn your pages, which comes with a lot of optimizations allowing the content to be swapped out 
+instanteniously. 
+    For this we need to do:
+      
+      1. import a named export {Link} from Gatsby npm module as this module is already installed as one of our three dependencies in our project as listed out on package.json, so we're good to go no need to install anything new 
+      2. {Link} is a react component. When we use Link to link btn the pages of our gatsby site, there is a bunch of optimizations happen behind the scenes, for example:
+        - Gatsby is going to preload the page content, you might be heading to. So if you do click that link, it loads instantly!
+        - And you've no longer that flash of content btn pages.
+      3. The Link component needs 'to' property. To is the path we're trying to head to in this case it is '/contact'
+
+Modified three pages: Index.js /about.js / contact.js
