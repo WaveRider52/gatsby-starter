@@ -210,3 +210,42 @@ instanteniously.
       3. The Link component needs 'to' property. To is the path we're trying to head to in this case it is '/contact'
 
 Modified three pages: Index.js /about.js / contact.js
+
+### 📃 Lesson 3: Creating Shared Page Components ###
+Let's use shared components! Setting up something like a navigation bar, that shows up exactly the same for every single page that is the topic of this lesson. 
+
+Think about you have a component shared among the entire site like header or footer. Let's create a seperate react component that all the pages can use and render.
+
+  Let's start with the footer:
+    1. Create a new file for a new react component. The footer.
+    2. Once we have that component in place all of our pages can import it and use it at the bottom of the page.
+    3. That will give us a shared footer.
+
+This new component file should not go in the source pages directory since we're not trying to create a new page. We're just trying to create a new component that can be rendered on every page.
+  
+  So to do that: 
+    1. We have to start by creating /componets directory
+    2. From there we're going to create footer.js. This would be the footer component.
+    3. /components directory has no special meaning. The files inside here aren't going to do anything unless they're imported in somewhere else. And that's exactly what we want.
+    4. We store in constant Footer our functional component.
+    5. And setup the content we're going to render. With Footer element as root element
+    6. The last thing to do is to export this component from this file. Otherwise we'll never be able to access it.
+    7. We can now import and render this component in various pages for our site
+
+  Let's start with the one page we already have up:
+    1. That's the contact page
+    2. Above contact page component we're gonna import the Footer, so I'm importing the default export calling it Footer
+    3. And I'm grabing it from a file relative to this one.
+    4. So I'm gonna start off with .. to get out of the pages directory where the current file lives.
+    5. Than it /components since I'm looking for a file in there and it's called footer leaving off the .js file extension.
+
+Let's put the footer at the bottom of the contact page where it belongs. Just before the last closing div element.
+
+Using react components we're able to compose our pages and nothing we're doing here is gatsby specific. Here we're just using the fundementals of react. So we do the same for about, blog and index pages.
+
+So I created header react component in the same way as footer.
+
+
+Modified three pages: Index.js / about.js / contact.js / blog.js
+Added direcotory: /components
+Added react components: footer.js / header.js
