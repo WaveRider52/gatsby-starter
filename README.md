@@ -249,3 +249,58 @@ So I created header react component in the same way as footer.
 Modified three pages: Index.js / about.js / contact.js / blog.js
 Added direcotory: /components
 Added react components: footer.js / header.js
+
+### 📃 Lesson 4: Creating Gatsby Page Layouts ###
+In this lesson you will bring your pages to the next level. We will set up a universal layout component that we can easily use to create new page  with just a couple of lines of code. 
+What we gonna do is create a new component in our /components directory and let's call the component layout.js. This will be adventually the only component that our pages need to import in order to get up and running. Now we're gonna focus on layout.js and index.js.
+
+So for the start let's create the basic structure of the layout component:
+
+  1. Import react from react
+  2. Setup layout constant
+  3. It's a functional component where we return some jsx
+  4. And I'll start off with a single root div
+  5. Down below we go a head and export this component 
+      ```
+      export default Layout
+      ```
+
+Let's go over and try to use it over in index.js and see what happens. So here is the big picture goal:
+  1. I wanna be able to remove every components that are used on every page and just use that single layout component instead so that's the only one I'm gonna end up importing.
+  2. I'm gonna import typing following in index.js
+      ```
+      import Layout from '../components/layout'
+      ```
+  3. I'm gonna recreate the return statemen and remove the duplicate one
+      We're gonna enter unique staff inside Layout tag
+  4. Well for us is what unique? It's none of the tags div, Header, Footer. It's just the staff right inside.
+      So I'm going to copy those three elements h1, h2 and p.
+  5. And gonna paste them inside Layout element and this is the end goal of what we want.
+  6. Now currently if I remove that duplicate return, this is not going to work as expected
+  7. I'm gonna save index.js
+  8. I'm gonna navigate over to the homepage and what do we have? We have a blank screen.
+      That's because the stuff we're passing inside Layout tag is not rendered.
+  9. Well in react to get content rendered inside of a component via the children prop and that's exactly what we gonna use to get all of that other stuff rendered.
+  10. So inside layout.js we get our props 
+      ```
+      const Layout = (props) => {
+      ```
+
+      and we're going to use one right here. we're going to render  
+  
+      ```
+      props.children
+      ```
+
+      and putting that inside curly braces to reference that javascript variable.
+
+Now, what is props.children? Well it's the JSX passed in. So it is JSX for these three elements: h1, h2, p.
+
+Now after saved layout.js. We see on the homepage our content rendered. From here we can customize the layout component to add stuff that's gonna be shared on all pages like that header and footer.
+
+So I'll import the Header from ./header and the same thing for Footer ./footer and finally we will use both of those. Now the header is going to go just before the individual page content and the footer just after that content.
+
+So using the layout.js component is just gonna make our lives a whole lot easier. Now let's go a head and integrate that into the other three pages for the site.
+
+So let's checkout each page to make sure that everything is working. And there we go! We have a basic static site created and powered by gatsby. Now we're not done not by a long shot. There's a lot more to cover and what I wanna focus on in the next few lessons styling your gatsby sites.
+  
