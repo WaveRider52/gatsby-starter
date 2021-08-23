@@ -304,3 +304,73 @@ So using the layout.js component is just gonna make our lives a whole lot easier
 
 So let's checkout each page to make sure that everything is working. And there we go! We have a basic static site created and powered by gatsby. Now we're not done not by a long shot. There's a lot more to cover and what I wanna focus on in the next few lessons styling your gatsby sites.
   
+### 📃 Lesson 5: Styling Gatsby Projects ###
+In this lesson we will bring style to our gatsby sites using css. In this lesson we'll be using gatsby plugin to enable SAS so we can take advantage all of the great features of the scsss synthax.
+
+Let's get started with some basic styles getting those applied to the site.
+
+Create a new folder /styles and in there I'm going to put a new file index.css. This will be the start of the styles for our site.
+
+To make obvious that styles are in our pages included, all we going to do is to use universal selector to select every element on the page. And we are going to change its color to red. By default the styles are definetly not being applied. None of the pages is red and this is correct.
+
+To make it by default loaded, we're going to import our base style sheet from our layout component as the layout component is used on each and every page:
+  ```
+      import '../styles/index.css'
+  ```
+to get those styles included in the static sites that gatsby generates.
+
+We want to enable a css pre-processor. Here we'll be using SASS, allowing us to take advantage of the scss synthax so we can use all of the great features, functions and other tools it provides.
+Now to do that we're going to use our very first gatsby plugin. You can find the list of all available plugins on the gatsby site gatsbyjs.org. Well we choose plugin menu from the site, which allow us to search through all available plugins to find the one we're looking for. Now this list includes both official plugins released and maintained by the gatsby core team and it also includes third party plugins.
+So if we search for sass, here it is: it is gatsby-plugin-sass.
+So currently I can use the import statement to import a css file but if I try to import sass file or an scss file gatsby wouldn't know what to do. Once we have this plugin correctly installed and configured, it will all work as expected:
+
+So the 1st thing we're going to install is the plug-in, that is gatsby-plugin-sass
+
+And the other thing we need is node-sass. So this module is responsible for converting the files down to regular css and this plugin just allows us to atually do that from a gatsby site. Now we can go ahead and run this installation command installing both of those tools:
+  ```
+[gatsby-starter]$ npm install gatsby-plugin-sass node-sass
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+
+> node-sass@6.0.1 install /Users/orcunodabas/git/gatsby-starter/node_modules/node-sass
+> node scripts/install.js
+
+Downloading binary from https://github.com/sass/node-sass/releases/download/v6.0.1/darwin-x64-83_binding.node
+Download complete ░⸩ ⠋ :
+Binary saved to /Users/orcunodabas/git/gatsby-starter/node_modules/node-sass/vendor/darwin-x64-83/binding.node
+Caching binary to /Users/orcunodabas/.npm/node-sass/6.0.1/darwin-x64-83_binding.node
+
+> node-sass@6.0.1 postinstall /Users/orcunodabas/git/gatsby-starter/node_modules/node-sass
+> node scripts/build.js
+
+Binary found at /Users/orcunodabas/git/gatsby-starter/node_modules/node-sass/vendor/darwin-x64-83/binding.node
+Testing binary
+Binary is fine
+npm WARN acorn-import-assertions@1.7.6 requires a peer of acorn@^8 but none is installed. You must install peer dependencies yourself.
+npm WARN eslint-config-react-app@6.0.0 requires a peer of babel-eslint@^10.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN ts-node@9.1.1 requires a peer of typescript@>=2.7 but none is installed. You must install peer dependencies yourself.
+npm WARN tsutils@3.21.0 requires a peer of typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta but none is installed. You must install peer dependencies yourself.
+npm WARN gatsby-plugin-sass@4.12.0 requires a peer of sass@^1.30.0 but none is installed. You must install peer dependencies yourself.
+
++ node-sass@6.0.1
++ gatsby-plugin-sass@4.12.0
+added 150 packages from 124 contributors and audited 1866 packages in 198.372s
+
+217 packages are looking for funding
+  run `npm fund` for details
+
+found 8 vulnerabilities (7 moderate, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+  ```
+
+And once that's done, all we need to do is configure our gatsby site to actually use that plugin. It's not enough to just install the plugin, it needs to be configured. Now that's done via a file which currently does not exist in our project. But we can go ahead and create it.
+
+It needs to leave in root of our project and it needs to be called gatsby-config.js. One of the core things we can to do here is configure the plugins we wanna use and that's exactly what we gonna end up doing.
+
+This config file just needs to export an object but it is important to note, that this is a NodeJS file so we need to use module.exports and the main properties we are going to use is plugins and inside we can configure all of the plugins we wanna use. So the only plugin we are going to use is gatsby-plugin-sass. Now we ready to use scss or sass in our project.
+
+So we start our develop server with command npm run develop.
+
+And once it's up it's gonna use this plugin. Which means we can now create import scss or sass files.
+
+What I'm gonna to is to rename index.css into index.scss. Than what I'm gonna do is import that file instead of import index.css
