@@ -398,7 +398,7 @@ The other downside is you also have to update the blog page so your posts showed
 
 Instead we're going to focus getting data via the GraphQL API that Gatsby provides. The best way to visualize is actually on the homepage of the Gatsby site that's over at gatsbyjs.org.
 
-![How Gatsby Works](https://drive.google.com/file/d/18wCFRtR7YhCL_c29t5lDM5_tPiBHEsE4/view?usp=sharing)
+![How Gatsby Works](https://drive.google.com/uc?export=view&id=18wCFRtR7YhCL_c29t5lDM5_tPiBHEsE4)
 
 It's a pretty good visualization for what's happening here. Everything we were working so far sits below right BUILD block. 
 
