@@ -398,16 +398,16 @@ The other downside is you also have to update the blog page so your posts showed
 
 Instead we're going to focus getting data via the GraphQL API that Gatsby provides. The best way to visualize is actually on the homepage of the Gatsby site that's over at gatsbyjs.org.
 
-![How Gatsby Works](https://drive.google.com/file/d/18wCFRtR7YhCL_c29t5lDM5_tPiBHEsE4/view?usp=sharing)
+![How Gatsby Works](https://drive.google.com/uc?export=view&id=18wCFRtR7YhCL_c29t5lDM5_tPiBHEsE4)
 
 It's a pretty good visualization for what's happening here. Everything we were working so far sits below right BUILD block. 
 
-![How Gatsby Works - Build Block](https://drive.google.com/file/d/1NQnWlaDl8y-k2v2nPBIdhGalwmQDdJJG/view?usp=sharing)
+![How Gatsby Works - Build Block](https://drive.google.com/uc?export=view&id=1NQnWlaDl8y-k2v2nPBIdhGalwmQDdJJG)
 
 So yes we are using gatsby and we are working with HTML, CSS and React. And we're also getting a version of our site up and running. We're not deploying it to production. We're running it in development but it's the same idea and we'll get to the deploy stage a little bit later.
 
 
-![How Gatsby Works - Datasources Block](https://drive.google.com/file/d/1jWDfGP7XlgHGq-igxbnsjWqHUSnOYEaq/view?usp=sharing)
+![How Gatsby Works - Datasources Block](https://drive.google.com/uc?export=view&id=1jWDfGP7XlgHGq-igxbnsjWqHUSnOYEaq)
 
 The only thing we haven't touched on is what's up above the DATASOURCES for your gatsby site. So where does your data come from when it's not typed directly inside of a react component? It could come from a CMS like Contentful or Wordpress. It could come from files on the file system in the form of markdown, blog posts. It could come from any 3rd party datasouce such as a custom API you've created. So this is what makes Gatsby really powerful. We can pull in all of these data using gatsby's GraphQL API allowing us to create what is still a static site but that static site get generated with dynamic data from 3rd party data sources. Now we will progress some more complex data sources like CMSs and markdown files but we're gonna start with one of the easiest build-in ways we can set up dynamic data in our gatsby sites. And that is via what known as site meta data -it's nothing more than an object on there. We can put key/value pairs for whatever we would like. As an example site title. Maybe the twitter profile name. The author of the site anything like that that we wanna be able to easily adjust across the entire site. 
 
@@ -417,7 +417,7 @@ I'm gonna call mine something like Full-Stack Hub perfect. You can choose whatev
 
 Right here that is localhost:8000/___graphql
 
-![How Gatsby Works - GraphQL API](https://drive.google.com/file/d/11vXiFZRWZeRqPAe-VwDVyQFh9oK7t4El/view?usp=sharing)
+![How Gatsby Works - GraphQL API](https://drive.google.com/uc?export=view&id=11vXiFZRWZeRqPAe-VwDVyQFh9oK7t4El)
 
 This is gonna pull up a tool called GraphiQL which is an inbrowser IDE for exploring a GraphQL API so if you've ever worked with REST API before maybe you've used tools Postman or Insomnia this is the same idea just for a GraphQL.
 
@@ -431,7 +431,7 @@ so we can use this to mess around all of the data we have access to. Figuring ou
 
 For now we're gonna start by using GraphiQL to mess around with the basics GraphQL, once we know how to fetch the title and the author we'll actually bring back into a react component to wire that data up dynamically. If you haven't worked with GraphQL APIs before, one of the great things about than is that their self documenting GraphQL uses an explicit schema and the tools like GraphiQL can show you that schema letting you know exactly what data you have access to and how you can get it.
 
-![How Gatsby Works - GraphQL User Interface](https://drive.google.com/file/d/1OSGzbflmdDcV_iyxKwQ6qnvsKrpeaKic/view?usp=sharing)
+![How Gatsby Works - GraphQL User Interface](https://drive.google.com/uc?export=view&id=1OSGzbflmdDcV_iyxKwQ6qnvsKrpeaKic)
 
 So for us let's open this Doc's Panel on the right handside. Now in GraphQL there are three main operations we can perform:
 1. Queries
@@ -448,11 +448,11 @@ So I'm gonna click on **site**. So I'm gonna click on site. We can see a few dif
 
 And I can view the Type Definition, which is what we want. So when we grab site, what we do get access to. If I click that we gonna access to all of that fields
 
-![How Gatsby Works - Site fields](https://drive.google.com/file/d/1402r0tmDKbh4qt1_cPUM9OlBHow-1nC3/view?usp=sharing)
+![How Gatsby Works - Site fields](https://drive.google.com/uc?export=view&id=1402r0tmDKbh4qt1_cPUM9OlBHow-1nC3)
 
 I have a quite a few different fields. The one that we're interested in is called **siteMetadata**.
 
-![How Gatsby Works - Type of siteMetadata](https://drive.google.com/file/d/193Kb0T2hEdR2HZCUe9lOTPMHjPfBlqRL/view?usp=sharing)
+![How Gatsby Works - Type of siteMetadata](https://drive.google.com/uc?export=view&id=193Kb0T2hEdR2HZCUe9lOTPMHjPfBlqRL)
 
 Now if I click on siteMetadata. I can see that is of the following type. I click on that and I see what field I have access to, **title** and **author**.
 
@@ -466,19 +466,19 @@ Step 1: remove comments on in the central left column, we can see the query
 Step 2: Here the query
 Step 3: When I hit the Play button above the query, I get the result of my query back   on the central right column, with a JSON object containing the same structure of the query.
 
-![How Gatsby Works - Run GraphQL Query](https://drive.google.com/file/d/1b-6GMpg4ZNGnfxhVjDUqRHrwF3qnnDzs/view?usp=sharing)
+![How Gatsby Works - Run GraphQL Query](https://drive.google.com/uc?export=view&id=1b-6GMpg4ZNGnfxhVjDUqRHrwF3qnnDzs)
 
 Let's go ahead and run this exact same query from a react component so we can fetch dynamic data into our site. We're gonna focus on grabing the site title like we're doing here. Now we're actually going to populate it as the value that shows up in the header up above. Now for us that means we need to make a change to the header component (header.js). This data right here (with author name) is gonna end up becoming dynamic and to get started, we have to grab to new things from the Gatsby library alongside of link. The first thing we're going to grab is called **graphql** and the second thing we're going to grab is called **useStaticQuery**. Using these two things we'll be able to perform a GraphQL query, getting access to data, then we'll be able to inject right in the JSX down below. So after we have finished, it looks like that below left side header component before changes done and right side after changes are done:
 
-![How Gatsby Works - Add GraphQL Query to header component](https://drive.google.com/file/d/1ySXePbyo1J7KsQFsZGFuMazx6z8zr5ch/view?usp=sharing)
+![How Gatsby Works - Add GraphQL Query to header component](https://drive.google.com/uc?export=view&id=1ySXePbyo1J7KsQFsZGFuMazx6z8zr5ch)
 
 we create a variable to store the **data** we are fetching from GraphQL API. Then we're going to call **useStaticQuery** function. This is going to allow us to query our GraphQL API. Now we're going to call it as a function *useStaticQuery()* and inside of there we're going to provide **Tagged Template Literal**. So right here we're using a *Template String* but just before the template string we're using *graphql* which is a function:
 
-![How Gatsby Works - template literals and function](https://drive.google.com/file/d/1gMgL0VYtrRFW9aEvlqWKM7D1grRG5CD1/view?usp=sharing)
+![How Gatsby Works - template literals and function](https://drive.google.com/uc?export=view&id=1gMgL0VYtrRFW9aEvlqWKM7D1grRG5CD1)
 
 So this is a syntax *``* called **Tagged Template Literal**. Essentially it allows this string to be processed by that function and in this case it's going to convert our String GraphQL Query over to something that can actually be used. A complex abstract state three with all sorts of object properties and stuff we just don't worry about. So inside it we type exactly the same query what we were typing in GraphiQL
 
-![How Gatsby Works - GraphQL query](https://drive.google.com/file/d/1gq9vEO9oQpWBqdgUsje9i9-mm0-jYRiU/view?usp=sharing)
+![How Gatsby Works - GraphQL query](https://drive.google.com/uc?export=view&id=1gq9vEO9oQpWBqdgUsje9i9-mm0-jYRiU)
 
 So it's a query in there we're using the site query, I'm asking for the siteMetadata and on that I want the *title*.
 Now we're done. We have access to that data and we can go ahead and use it in the link down below or wherever else we might wanna use that data.
