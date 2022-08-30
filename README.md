@@ -489,3 +489,115 @@ Now what's cool is, as that data changes, the site will also change. So over her
 
 So now we have two dynamic pieces of data in the site and we figured out how to use Gatsby's GraphQL API which is a great step in the right direction.
 
+### 📃 Lesson 8: GraphQL Playground ###
+
+Graphiql is the default IDE for working with Graphql API in Gatsby. But Gatsby also support, newer and more featured IDE known as Graphql Playground. Graphql Playground provides us with additional features like a nice fully customizable UI interface, multiple tab options
+
+To swap out GraphQL for GraphQL Playground:
+1.  Create your environment specific .env file and set an environment variable on our machines
+  
+      We gonna set this in a cross OS compatible way. We gonna focus on `package.json`. Now this could be as easy as setting up THE environment variable right here in the script:
+      ```
+      "version": "0.1.0",
+        "license": "0BSD",
+        "scripts": {
+          "build": "gatsby build",
+          **LINE WHERE YOU CAN ASSIGN VALUE FOR ENV VARIABLE**
+          "develop": "gatsby develop",
+          "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+          "start": "npm run develop",
+          "serve": "gatsby serve",
+      ```
+The prblm with that is it's not cross OS compatibel. So instead we gonna create an environment variable in a separate file which will load in which is a very common approach.
+So right here in the root of the project we'll place the file `.env.development`. In here we're going to define a key value pair as environment variable: 
+
+```    
+GATSBY_GRAPHQL_IDE=playground
+``` 
+      
+![GraphQL Playground is a GraphQL IDE - Create .env File](https://drive.google.com/uc?export=view&id=1w5vmHpM21tzB_yy48W1UeZ3B-XEEKtx8)
+  
+  
+That's going to enable us GraphQL Support, giving us this new tool in the browser
+
+2. Get package *env-cmd* from npm by running command to load `.env.development` file in when we use development server. For this we're going to use very popular *env-cmd* package. In the terminal we type npm install command with *save-dev* flag since this is a dependency we use in development and from here we're gonna go ahead and set up *env-cmd*
+      ```
+        npm install --save-dev env-cmd
+      ```
+      ![GraphQL Playground is a GraphQL IDE - env-cmd package installation](https://drive.google.com/uc?export=view&id=1XQQlyVhEq7JTG_9-wlFvXKHs9xFZceox)
+      
+  3.  Update package.json
+        Update the script portion of our *package.json* and include the following
+    ```
+    "develop": "env-cmd -f .env.development gatsby develop"
+    ````
+![GraphQL Playground is a GraphQL IDE - Update package.json](https://drive.google.com/uc?export=view&id=12fNC_3s4cI-v6rDnxuxwv0QzsQkyfGJD)
+
+
+Now it's going to load these environment variables in then run the gatsby server
+  
+So let's start up our server. We're going to type 
+  ````
+  npm run develop
+  ````
+Once it's up and running
+  ````
+  waverider52@MacBook-Pro-von-Orcun gatsby-starter % npm run develop
+
+> gatsby-starter-hello-world@0.1.0 develop
+> env-cmd -f .env.development gatsby develop
+
+success open and validate gatsby-configs, load plugins - 0.261s
+success onPreInit - 0.064s
+info One or more of your plugins have changed since the last time you ran Gatsby. As
+a precaution, we're deleting your site's cache to ensure there's no stale data.
+success initialize cache - 0.076s
+success copy gatsby files - 0.152s 
+success Compiling Gatsby Functions - 0.531s
+success onPreBootstrap - 0.560s
+success createSchemaCustomization - 0.002s
+success Checking for changed pages - 0.002s
+success source and transform nodes - 0.062s
+success building schema - 0.420s
+success createPages - 0.001s
+success createPagesStatefully - 0.124s
+info Total nodes: 26, SitePage nodes: 5 (use --verbose for breakdown)
+success Checking for changed pages - 0.001s
+success update schema - 0.080s
+success write out redirect data - 0.005s
+success onPostBootstrap - 0.002s
+info bootstrap finished - 5.631s
+success onPreExtractQueries - 0.001s
+success extract queries from components - 0.278s
+success write out requires - 0.007s
+success run static queries - 0.025s - 2/2 79.19/s
+success run page queries - 0.036s - 2/2 55.55/s
+warn Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+success Caching HTML renderer compilation - 0.001s
+⠀
+You can now view gatsby-starter-hello-world in the browser.
+⠀
+  http://localhost:8000/
+⠀
+View the GraphQL Playground, an in-browser IDE, to explore your site's data and schema
+⠀
+  http://localhost:8000/___graphql
+⠀
+Note that the development build is not optimized.
+To create a production build, use gatsby build
+⠀
+success Building development bundle - 9.138s
+success Writing page-data.json files to public directory - 0.157s - 2/3 19.05/s
+  ````
+
+All we're going to do is refresh the graphiQL page with link *http://localhost:8000/___graphql* from output of run command and we should see something quite different.
+  
+It's loading entirely new interface. Here we have GraphQL Playground:
+
+![GraphQL Playground is a GraphQL IDE - GraphQL Playground User Interface](https://drive.google.com/uc?export=view&id=1Bk9F-_dKSChc546LkYeoXH_ibbMtq2pr)
+
+Accessing the documentation by working with deeply nested types in GraphQL API was a pain, if you need to navigate back and forth inside the single column of GraphiQL’s UI. The Playground lets you navigate your API documentation much comfortable by using multiple columns, and supporting keyboard-based navigation:
+
+![GraphQL Playground is a GraphQL IDE - GraphQL Playground API Docs Navigation](https://drive.google.com/uc?export=view&id=1UQlRrohW-NvdJcgUTqUIt349SAgSBC1M)
