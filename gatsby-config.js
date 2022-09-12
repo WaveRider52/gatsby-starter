@@ -7,10 +7,17 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: 'Gatsby Bootcamp',
-    author: 'Orçun Odabas'
+    title: "Gatsby Bootcamp",
+    author: "Orçun Odabas"
   },
   plugins: [
-    'gatsby-plugin-sass'
+    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+      }
+    }
   ]
 }
