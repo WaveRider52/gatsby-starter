@@ -13,61 +13,65 @@ Kick off your project with this hello-world boilerplate. This starter ships with
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
 ## 🚀 Quick start
-0.  **Check Environment and Setup.**
+### Check Environment and Setup
 
-    Only thing you need to install on your machine is Node.js.
-    Check if node  and npm are installed on your OS:
-    ```shell
-    node -v
-    v14.17.4
-    npm -v
-    6.14.14
-    ```
-    **Install Gatsby CLI**
+Only thing you need to install on your machine is Node.js.
+Check if node  and npm are installed on your OS:
+  ```shell
+  node -v
+  v14.17.4
+  npm -v
+  6.14.14
+  ```
+    
+### Install Gatsby CLI
 
-    To create a Gatsby site, you’ll need to install the Gatsby CLI. This tool gets you up and running with a Gatsby app in no time. It also runs a development server and builds your Gatsby application for production.
-    For the installation simply run a single npm command -g (flag to install module globally) and the module name is gatsby-cli followed by  "@" and the latest version, as today 3.11.0, to check the latest version look at https://www.npmjs.com/package/gatsby-cli?activeTab=versions
-    ```shell
-    [git]$ npm install -g gatsby-cli@3.11.0
-    npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-    npm WARN deprecated @hapi/joi@15.1.1: Switch to 'npm install joi'
-    npm WARN deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
-    npm WARN deprecated @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
-    npm WARN deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
-    npm WARN deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
-    /usr/local/bin/gatsby -> /usr/local/lib/node_modules/gatsby-cli/cli.js
+To create a Gatsby site, you’ll need to install the Gatsby CLI. This tool gets you up and running with a Gatsby app in no time. It also runs a development server and builds your Gatsby application for production.
 
-    > gatsby-cli@3.11.0 postinstall /usr/local/lib/node_modules/gatsby-cli
-    > node scripts/postinstall.js
+For the installation simply run a single npm command -g (flag to install module globally) and the module name is gatsby-cli followed by  "@" and the latest version, as today 3.11.0, to check the latest version look at https://www.npmjs.com/package/gatsby-cli?activeTab=versions
 
-    Success!
+  
+  ```shell
+  [git]$ npm install -g gatsby-cli@3.11.0
+  npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+  npm WARN deprecated @hapi/joi@15.1.1: Switch to 'npm install joi'
+  npm WARN deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+  npm WARN deprecated @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+  npm WARN deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+  npm WARN deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+  /usr/local/bin/gatsby -> /usr/local/lib/node_modules/gatsby-cli/cli.js
 
-    Welcome to the Gatsby CLI! Please visit https://www.gatsbyjs.org/docs/gatsby-cli/ for more information.
+  > gatsby-cli@3.11.0 postinstall /usr/local/lib/node_modules/gatsby-cli
+  > node scripts/postinstall.js
+
+  Success!
+
+  Welcome to the Gatsby CLI! Please visit https://www.gatsbyjs.org/docs/gatsby-cli/ for more information.
 
 
-    + gatsby-cli@3.11.0
+  + gatsby-cli@3.11.0
     updated 6 packages in 44.658s
-    ```
-1.  **Create a Gatsby site.**
+  ```
+### Create a Gatsby site.**
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the hello-world starter.
+Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the hello-world starter.
 
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new gatsby-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
-    The command you just ran:
+  ```shell
+  # create a new Gatsby site using the hello-world starter
+  gatsby new gatsby-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
+  ```
+  The command you just ran:
 
-    1. Created a new site with the Gatsby default starter.
-    2. Created a folder with the name of the project (dotcms-site).
-    3. Install all the npm packages that needs to run the site.
-    4. Made your life easier!
+  1. Created a new site with the Gatsby default starter.
+  2. Created a folder with the name of the project (dotcms-site).
+  3. Install all the npm packages that needs to run the site.
+  4. Made your life easier!
 
-1.  **Start developing.**
+### Start developing
 
-    Navigate into your new site’s directory and start it up.
+Navigate into your new site’s directory and start it up.
 
-    ```shell
+  
     cd gatsby-starter/
     [gatsby-starter]$ gatsby develop
     success open and validate gatsby-configs, load plugins - 0.508s
@@ -601,3 +605,69 @@ It's loading entirely new interface. Here we have GraphQL Playground:
 Accessing the documentation by working with deeply nested types in GraphQL API was a pain, if you need to navigate back and forth inside the single column of GraphiQL’s UI. The Playground lets you navigate your API documentation much comfortable by using multiple columns, and supporting keyboard-based navigation:
 
 ![GraphQL Playground is a GraphQL IDE - GraphQL Playground API Docs Navigation](https://drive.google.com/uc?export=view&id=1UQlRrohW-NvdJcgUTqUIt349SAgSBC1M)
+
+### 📃 Lesson 9: Sourcing Content From The File System
+
+Until now we saw how we used GraphQL API to source our data (content) from external sources. Now so far we have done that with siteMetaData. We were able to pull in some basic information, getting that rendered in our react components. But it's not exactly a great place for more complex data. For example the blog posts we are trying to create for our site. Storing that inside of that little siteMetaData object just is not realistic. 
+
+Instead we're gonna start to focus on creating a blog powered by markdown blog posts. So inside of our project we'll add markdown files for each of the blog posts we want to create. Those will then be listed over in the blog page of our site. And we'll also have Gatsby dynamically generate brand new pages based of a page template for each and every blog post.
+
+Let's get started by writing a couple of posts:
+
+We put our blog posts in the /src directory under a new folder called *posts* you can call it blogs or whatever you want. We will add couple of posts
+
+- gatsby.md
+- react.md
+
+#### Frontmatter
+First we add Frontmatter for our markdown post. When you create a Markdown file, you can include a set of key/value pairs that can be used to provide additional data relevant to specific pages in the GraphQL data layer. This data is called “frontmatter” and is denoted by the triple dashes at the start and end of the block.
+
+In this step I add the key pair *title* and *date*
+
+![Sourcing Content From The File System - Frontmatter](https://drive.google.com/uc?export=view&id=1ADF2iE8MzoZfC1P3NNpfwkek55Gxupen)
+
+Now we've two posts. What we need to know is figure out how to get these posts inside the Gatsby. 
+
+#### Step 1 Install Plugin to read markdown files
+Tell Gatsby we are getting content from an external source. It's coming from the file system. Use the plugin [gatsby-source-filesystem](https://www.gatsbyjs.com/plugins/gatsby-source-filesystem) to read files. This plugin will allow us to pull down markdown post files into Gatsby
+
+```
+npm install gatsby-source-filesystem@4.22.0
+```
+
+  ![Sourcing Content From The File System - Install Plugin](https://drive.google.com/uc?export=view&id=1RGcHqsHf2sZpfot3lNd_iKFo85ak64Uq)
+  
+#### Step 2 Add Plugin
+Open gatsby-config.js to add the gatsby-source-filesystem plugin. The path option is how you set the directory to search for files.
+
+The second item we add on to the plugins array will not be a string like 'gatsby-plugin-saas' it will be an object.
+
+We provide the name of our plugin via *resolve* property and type as the value the plugin's name **gatsby-source-filesystem**. Putting the new plugin as an object inside curly braces is identical as the plugin we defined as string. The only advantage is, that we can expand on that object, adding what the filesystem plugin needs, which is an *options* object. On *options* we provide two things. Both are strings:
+- name : **src** 
+- path : **$(__dirname)/posts/** (to the directory on the filesystem, that we're trying to source our content from)
+
+Let's start up our development server once again:
+
+````
+npm run develop
+````
+
+Let's head over to the Playground. We see two new queries we now access to by addin filesystem plugin.
+![Sourcing Content From The File System - Playground Query allFile](https://drive.google.com/uc?export=view&id=1ro2PIngB9F6Kz45hOZApn1gJcGupIUqF)
+
+As we head over to Docs, we see these new queries:
+
+- file
+- allFile
+
+Let's use allFile for fetching multiple files. Under *Type Details* we can see
+
+- edges
+
+edges makes it possible to perform pagination and in there we have access to *node*. Node represents an individual file and in it we have a bunch of information about the file, that we are currently requesting.
+
+After I run the query on Playground, I see a list of every single file in the /src/posts/ directory with these three pieces of information:
+
+![Sourcing Content From The File System - Playground Query allFile](https://drive.google.com/uc?export=view&id=19ebjobRZfCyghTx0pMUURDyT7V6nqxTg)
+
+Now we are correctly sourcing content from the filesystem. From here the question is, how do we specifically target these markdown files and how do we take their contents and convert them into something that's useful for us inside of react components. So this is the step 1 of 3 to get in the markdown blog up and running. In the next lesson we're gonna learn how to transform these markdown files into a HTML.
